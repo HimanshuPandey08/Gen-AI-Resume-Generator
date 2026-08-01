@@ -8,7 +8,7 @@ export const useAuth = ()=>{
 
     const context  = useContext(AuthContext);
 
-    const { user ,setUser , loading , setLoading  } = context
+    const { user , setUser , loading , setLoading  } = context
 
     const handleLogin = async ({email , password } ) =>{
         setLoading(true) 
@@ -47,6 +47,18 @@ export const useAuth = ()=>{
             setLoading(false)
         }
     }
+
+
+    useEffect(()=>{
+
+        const getAndSetUser = async ()=>{
+            const data = await getMe();
+            setUser(data.user)
+            setLoading(false)
+        }
+
+        getAndSetUser()
+    },[])
 
     // const handleGetMe = async ()=>{
     //     setLoading(true)
