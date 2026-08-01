@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 
 const Login = () => {
 
+
     const { loading , handleLogin } = useAuth()
     const nevigate = useNavigate()
 
@@ -15,7 +16,8 @@ const Login = () => {
     const handleSubmit = async (e)=>{
         e.preventDefault();
 
-        handleLogin({email, password })
+        await handleLogin({email, password })
+        nevigate("/")
     }
 
     if(loading){
