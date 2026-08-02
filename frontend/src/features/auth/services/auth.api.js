@@ -69,6 +69,7 @@ export async function getMe() {
     
     try {
         const response = await api.get("/api/auth/get-me" )
+        console.log("response data:", response.data);
         return response.data
 
     } catch (err) {

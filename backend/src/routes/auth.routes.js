@@ -3,16 +3,16 @@ const authControllers = require("../controller/auth.contoller")
 const authMiddleware = require("../middleware/auth.middleware")
 
 
-const authRoutes = Router();
+const authRouter = Router();
 
-authRoutes.post("/register",authControllers.registerUserController )
+authRouter.post("/register",authControllers.registerUserController )
 
-authRoutes.post("/login", authControllers.loginUserController)
+authRouter.post("/login", authControllers.loginUserController)
 
-authRoutes.get("/logout", authControllers.logoutUserController )
+authRouter.get("/logout", authControllers.logoutUserController )
 
-authRoutes.get("/get-me", authMiddleware.authUser , authControllers.getMeController )
+authRouter.get("/get-me", authMiddleware.authUser , authControllers.getMeController )
 
 
 
-module.exports = authRoutes;
+module.exports = authRouter;
