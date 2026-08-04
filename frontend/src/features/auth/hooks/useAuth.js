@@ -67,21 +67,7 @@ export const useAuth = ()=>{
 
     }, []);
 
-    // const handleGetMe = async ()=>{
-    //     setLoading(true)
-    //     try {
-    //         const data = await getMe();
-    //         setUser(data.user)
-    //     } catch (err) {
-    //         console.log(err)
-    //     } finally {
-    //         setLoading(false)
-    //     }
-    // }
-
-    return {user , loading ,handleRegister, handleLogin , handleLogout 
-        // , handleGetMe 
-    }
+    return {user , loading ,handleRegister, handleLogin , handleLogout   }
 }
 
 
