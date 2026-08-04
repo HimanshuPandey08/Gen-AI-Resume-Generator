@@ -116,6 +116,11 @@ const interviewSchema = {
             },
             required: ["day", "focus", "tasks"]
         }
+        },
+        title:{
+            type: "string",
+            description:
+                "The title of the job for which the interview report is generated."
         }
     },
 
@@ -124,7 +129,8 @@ const interviewSchema = {
         "technicalQuestions",
         "behavioralQuestions",
         "skillGaps",
-        "preparationPlan"
+        "preparationPlan",
+        "title"
     ]
     };
 
