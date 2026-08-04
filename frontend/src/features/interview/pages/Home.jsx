@@ -2,9 +2,12 @@ import React, { useRef, useState } from "react";
 import "../style/home.scss";
 import { useInterview } from "../hooks/useInterview";
 import { useNavigate } from 'react-router'
-
+import { useAuth } from "../../auth/hooks/useAuth";
 
 const Home = () => {
+
+
+  const { handleLogout } = useAuth();
   
   const navigate = useNavigate()
   const { loading ,generateReport, reports } = useInterview()
@@ -32,9 +35,18 @@ const Home = () => {
     <main className="home-page">
 
       <div className="page-header">
-        <h1>
-          AI <span className="highlight">Interview</span> Generator
-        </h1>
+        <div className="header-top">
+          <h1>
+            AI <span className="highlight">Interview</span> Generator
+          </h1>
+
+          <button
+            className="logout-btn"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </div>
 
         <p>
           Upload your resume, add your self description and job description to
@@ -156,6 +168,8 @@ const Home = () => {
         </div>
 
       </div>
+
+
 
       {/* Recent Reports List */}
 
