@@ -11,7 +11,7 @@ const Home = () => {
   
   const navigate = useNavigate()
   const { loading ,generateReport, reports } = useInterview()
-  
+  const [resumeName, setResumeName] = useState("");
   const [jobDescription, setJobDescription] = useState("")
   const [selfDescription, setSelfDescription] = useState("")
   const resumeInputRef = useRef()
@@ -94,21 +94,27 @@ const Home = () => {
                 </div>
 
                 <p className="dropzone__title">
-                  Click to Upload Resume
+                  {resumeName || "Click to Upload Resume"}
                 </p>
 
                 <p className="dropzone__subtitle">
-                  PDF only
+                  {resumeName ? "Selected Successfully ✅" : "PDF only"}
                 </p>
               </label>
 
               <input
-              ref={resumeInputRef}
+                ref={resumeInputRef}
                 hidden
                 type="file"
                 id="resume"
                 name="resume"
                 accept=".pdf"
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file) {
+                    setResumeName(file.name);
+                  }
+                }}
               />
 
             </div>
