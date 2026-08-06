@@ -164,11 +164,6 @@ npm run dev
 
 ---
 
-## Screenshots
-
-_Add project screenshots here._
-
----
 
 ## Live Website
 
